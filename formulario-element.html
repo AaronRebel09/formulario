@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-input/iron-input.html">
 
 <dom-module id="formulario-element">
   <template>
@@ -7,7 +8,15 @@
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
+    <!-- <h2>Name [[name]]!</h2> -->
+
+    <!-- bind to the "owner" property -->
+    <p>Name <b>[[name]]</b>'s name-tag element.</p>
+    
+    <!-- iron-input exposes a two-way bindable input value -->
+    <iron-input bind-value="{{name}}">
+      <input is="iron-input" placeholder="Your name here...">
+    </iron-input>
   </template>
 
   <script>
@@ -23,9 +32,9 @@
       static get is() { return 'formulario-element'; }
       static get properties() {
         return {
-          prop1: {
+          name: {
             type: String,
-            value: 'formulario-element'
+            value: 'aron'
           }
         };
       }
